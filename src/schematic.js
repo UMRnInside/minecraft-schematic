@@ -6,10 +6,9 @@ var nbt = require('prismarine-nbt');
 class Schematic {
 
     constructor(x, y, z) {
-        this.blockData = new Buffer(x * y * z);
-        this.blockData.fill(0);
-        this.blockMeta = new Buffer(x * y * z);
-        this.blockMeta.fill(0);
+        // Buffer will be filled with 0 (by default)
+        this.blockData = Buffer.alloc(x * y * z);
+        this.blockMeta = Buffer.alloc(x * y * z);
 
         this.length = x;
         this.width  = z;
